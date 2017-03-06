@@ -1,5 +1,5 @@
-#N canvas 1644 143 1122 626 10;
-#N canvas 1919 1121 2006 318 ctl 0;
+#N canvas 1962 387 1292 1391 10;
+#N canvas 1439 203 2323 1478 ctl 0;
 #X obj 50 122 ctlin 3;
 #X msg 52 153 set \$1;
 #X obj 46 256 ctlout 3;
@@ -239,6 +239,36 @@
 #X obj 1156 1073 ctlin 91;
 #X obj 1146 1293 s keyprioin;
 #X obj 1252 237 r cutoffout;
+#X obj 1413 751 pack s;
+#X obj 362 1777;
+#X msg 1495 795 symbol \$1;
+#X obj 1476 925 s;
+#X obj 1484 830 t b s;
+#X obj 1398 865 random 128;
+#X msg 1406 603 vcfsustainout \, vcfdecayout \, vcfattackout \, legatoglideout
+\, gliderateout;
+#X obj 1373 398 r randompatch;
+#X msg 1427 656 cutoffout \, resout \, lforateout \, releaseout \,
+vcfreleaseout;
+#X msg 1597 544 vco1lvlout \, vco2lvlout \, egamtout \, resout \, vco2beatfreqout
+\, vco2freqout \, ampreleaseout \, ampsustainout \, ampdecayout \,
+ampattackout;
+#X msg 1588 449 vcflfoamtout \, vcolfoamtout \, lforateout;
+#X obj 1645 1056 pack s;
+#X msg 1727 1100 symbol \$1;
+#X obj 1708 1230 s;
+#X obj 1716 1135 t b s;
+#X obj 1629 940 r randompatch;
+#X obj 1630 1170 random 2;
+#X obj 1448 1347 pack s;
+#X msg 1530 1391 symbol \$1;
+#X obj 1511 1521 s;
+#X obj 1519 1426 t b s;
+#X obj 1432 1231 r randompatch;
+#X msg 1427 1297 keyprioout \, trigmodeout \, glidetypeout;
+#X obj 1433 1461 random 3;
+#X msg 1624 1006 osc1out \, osc2out \, lfokeytrigout \, notesyncout
+\, glideout \, legatoglideout;
 #X connect 0 0 1 0;
 #X connect 1 0 3 0;
 #X connect 4 0 2 0;
@@ -415,23 +445,50 @@
 #X connect 235 1 233 0;
 #X connect 236 0 234 0;
 #X connect 238 0 142 0;
+#X connect 239 0 241 0;
+#X connect 241 0 243 0;
+#X connect 243 0 244 0;
+#X connect 243 1 242 1;
+#X connect 244 0 242 0;
+#X connect 245 0 239 0;
+#X connect 246 0 245 0;
+#X connect 246 0 247 0;
+#X connect 246 0 248 0;
+#X connect 246 0 249 0;
+#X connect 247 0 239 0;
+#X connect 248 0 239 0;
+#X connect 249 0 239 0;
+#X connect 250 0 251 0;
+#X connect 251 0 253 0;
+#X connect 253 0 255 0;
+#X connect 253 1 252 1;
+#X connect 254 0 263 0;
+#X connect 255 0 252 0;
+#X connect 256 0 257 0;
+#X connect 257 0 259 0;
+#X connect 259 0 262 0;
+#X connect 259 1 258 1;
+#X connect 260 0 261 0;
+#X connect 261 0 256 0;
+#X connect 262 0 258 0;
+#X connect 263 0 250 0;
 #X restore 73 44 pd ctl;
 #X obj 200 440 vsl 15 128 0 127 0 0 lforateout lforatein LFO_RATE 0
--9 0 10 -262144 -1 -1 5600 1;
+-9 0 10 -262144 -1 -1 8100 1;
 #X obj 268 440 vsl 15 128 0 127 0 0 vcolfoamtout vcolfoamtin VCO_LFO_AMT
-0 -9 0 10 -262144 -1 -1 100 1;
+0 -9 0 10 -262144 -1 -1 11400 1;
 #X obj 348 441 vsl 15 128 0 127 0 0 vcflfoamtout vcflfoamtin VCF_LFO_AMT
-0 -9 0 10 -262144 -1 -1 8100 1;
+0 -9 0 10 -262144 -1 -1 7300 1;
 #X obj 458 442 vsl 15 128 0 127 0 0 ampattackout ampattackin ATATCK
-0 -9 0 10 -262144 -1 -1 2300 1;
+0 -9 0 10 -262144 -1 -1 9000 1;
 #X obj 504 444 vsl 15 128 0 127 0 0 ampdecayout ampdecayin DECAY 0
--9 0 10 -262144 -1 -1 1600 1;
+-9 0 10 -262144 -1 -1 12700 1;
 #X obj 598 444 vsl 15 128 0 127 0 0 ampreleaseout ampreleasein RELEASE
-0 -9 0 10 -262144 -1 -1 1600 1;
+0 -9 0 10 -262144 -1 -1 11600 1;
 #X obj 545 443 vsl 15 128 0 127 0 0 ampsustainout ampsustainin SUSTAIN
-0 -9 0 10 -262144 -1 -1 12100 1;
+0 -9 0 10 -262144 -1 -1 1300 1;
 #X obj 205 362 hsl 128 15 0 127 0 0 extinlevelout extinlevelin EXT_IN_LVL
--2 -8 0 10 -262144 -1 -1 5400 1;
+-2 -8 0 10 -262144 -1 -1 6400 1;
 #X obj 306 396 tgl 15 0 lfokeytrigout lfokeytrigin LFO_KEY_TRIGGER
 17 7 0 10 -262144 -1 -1 0 1;
 #X obj 708 444 tgl 25 0 glideout glidein GLIDE 1 -11 0 10 -260097 -1
@@ -443,55 +500,47 @@
 #X obj 198 397 tgl 15 0 lfomidisyncout lfomidisyncin LFO_MIDI_SYNC
 17 7 0 10 -262144 -1 -1 0 1;
 #X obj 206 293 hsl 128 15 0 127 0 0 vco1lvlout vco1lvlin VCO1_LVL -2
--8 0 10 -262144 -1 -1 8100 1;
+-8 0 10 -262144 -1 -1 11100 1;
 #X obj 662 196 hsl 128 30 0 127 0 0 egamtout egamtin EG_AMOUNT -2 -8
-0 10 -262144 -1 -1 7600 1;
-#X obj 207 200 hsl 128 15 0 127 0 0 vco2freqout vco2freqin VCO2_FREQ
--2 -8 0 10 -262144 -1 -1 0 1;
-#X obj 207 200 hsl 128 15 0 127 0 0 vco2freqout vco2freqin VCO2_FREQ
--2 -8 0 10 -262144 -1 -1 0 1;
+0 10 -262144 -1 -1 2700 1;
 #X obj 207 234 hsl 128 15 0 127 0 0 vco2beatfreqout vco2beatfreqin
-VCO2_BEAT_FREQ -2 -8 0 10 -262144 -1 -1 7400 1;
+VCO2_BEAT_FREQ -2 -8 0 10 -262144 -1 -1 3100 1;
 #X obj 70 292 tgl 30 0 osc1out osc1in OSC1_SAW/SQUARE 1 -11 0 10 -260097
 -1 -1 0 1;
 #X obj 80 211 tgl 15 0 notesyncout notesyncin NOTE_SYNC 17 7 0 10 -262144
--1 -1 0 1;
+-1 -1 65 1;
 #X obj 717 491 hsl 128 15 0 127 0 0 gliderateout glideratein GLIDE_RATE
--2 -8 0 10 -262144 -1 -1 5500 1;
+-2 -8 0 10 -262144 -1 -1 7300 1;
 #X obj 709 410 hradio 15 1 0 3 keyprioout keyprioin KEYB_PRIO 0 -8
 0 10 -262144 -1 -1 0;
 #X obj 749 446 tgl 15 0 legatoglideout legatoglidein LEGATO_GLIDE 17
-7 0 10 -262144 -1 -1 2 1;
+7 0 10 -262144 -1 -1 0 1;
 #X obj 204 329 hsl 128 15 0 127 0 0 vco2lvlout vco2lvlin VCO2_LVL -2
--8 0 10 -262144 -1 -1 11300 1;
+-8 0 10 -262144 -1 -1 4900 1;
 #X obj 207 200 hsl 128 15 0 127 0 0 vco2freqout vco2freqin VCO2_FREQ
--2 -8 0 10 -262144 -1 -1 0 1;
-#X obj 207 200 hsl 128 15 0 127 0 0 vco2freqout vco2freqin VCO2_FREQ
--2 -8 0 10 -262144 -1 -1 0 1;
-#X obj 207 200 hsl 128 15 0 127 0 0 vco2freqout vco2freqin VCO2_FREQ
--2 -8 0 10 -262144 -1 -1 0 1;
+-2 -8 0 10 -262144 -1 -1 9500 1;
 #X obj 370 195 hsl 128 30 0 127 0 0 cutoffout cutoffin CUTOFF -2 -8
-0 10 -262144 -1 -1 3500 1;
+0 10 -262144 -1 -1 10800 1;
 #X obj 515 195 hsl 128 30 0 127 0 0 resout resin RES -2 -8 0 10 -262144
--1 -1 1600 1;
+-1 -1 11600 1;
 #X obj 459 271 vsl 15 128 0 127 0 0 vcfattackout vcfattackin ATATCK
-0 -9 0 10 -262144 -1 -1 6200 1;
+0 -9 0 10 -262144 -1 -1 12500 1;
 #X obj 505 273 vsl 15 128 0 127 0 0 vcfdecayout vcfdecayin DECAY 0
--9 0 10 -262144 -1 -1 1300 1;
+-9 0 10 -262144 -1 -1 12100 1;
 #X obj 599 273 vsl 15 128 0 127 0 0 vcfreleaseout vcfreleasein RELEASE
-0 -9 0 10 -262144 -1 -1 1300 1;
+0 -9 0 10 -262144 -1 -1 9600 1;
 #X obj 546 272 vsl 15 128 0 127 0 0 vcfsustainout vcfsustainin SUSTAIN
-0 -9 0 10 -262144 -1 -1 11600 1;
-#X obj 690 271 tgl 30 0 releaseout releasein RELEASE 17 7 0 10 -260097
--1 -1 65 1;
+0 -9 0 10 -262144 -1 -1 9500 1;
+#X obj 690 271 tgl 30 0 releaseout releasein RELEASE 1 -11 0 10 -260097
+-1 -1 0 1;
 #X obj 71 345 tgl 30 0 osc2out osc2in OSC2_SAW/SQUARE 1 -11 0 10 -260097
--1 -1 65 1;
+-1 -1 0 1;
 #X obj 712 557 hradio 15 1 0 3 glidetypeout glidetypein GLIDE_TYPE
 0 -8 0 10 -262144 -1 -1 2;
 #X obj 719 147 hsl 128 15 0 127 0 0 volvelout volvelin VOLUME_VELOCITY
--2 -8 0 10 -262144 -1 -1 6500 1;
+-2 -8 0 10 -262144 -1 -1 0 1;
 #X obj 859 148 vsl 30 128 0 127 0 0 volout volin VOLUME 0 -9 0 10 -262144
--1 -1 8400 1;
+-1 -1 12700 1;
 #X obj 707 353 hradio 15 1 0 3 trigmodeout trigmodein TRIGGER_MODE
 0 -8 0 10 -262144 -1 -1 0;
 #X obj 555 93 bng 30 250 50 0 soundoffout soundoffin ALL_SOUNDS_OFF
@@ -505,4 +554,6 @@ VCO2_BEAT_FREQ -2 -8 0 10 -262144 -1 -1 7400 1;
 #X text 703 381 LOW/HIGH/LAST;
 #X text 656 526 LINEAR CONSTANT RATE/LINEAR CONSTANT TIME/EXPONENTIAL
 ;
+#X obj 688 47 bng 40 250 50 0 randompatch empty RANDOMIZE 1 -11 0 12
+-260097 -1 -1;
 #X coords 0 0 1 1 85 60 0;
